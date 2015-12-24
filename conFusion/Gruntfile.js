@@ -29,7 +29,7 @@ module.exports = function (grunt) {
         copy: {
             dist: {
                 cwd: 'app',
-                src: ['**', '!styles/**/*.css', '!scripts/**/*.js'],
+                src: ['**', '!styles/**/*.css', '!scripts/**/*.js', '!bower_components/**'],//
                 dest: 'dist',
                 expand: true
             },
@@ -61,7 +61,13 @@ module.exports = function (grunt) {
         useminPrepare: {
             html: 'app/index.html',
             options: {
-                dest: 'dist'
+                dest: 'dist',
+//                flow: {
+//                  steps: {
+//                    'js': ['concat']
+//                  }
+//                },
+//                post: {}
             }
         },
         // Concat
@@ -108,6 +114,18 @@ module.exports = function (grunt) {
             options: {
                 assetsDirs: ['dist', 'dist/styles']
             }
+        },
+        // Allow the use of non-minsafe AngularJS files. Automatically makes it
+        // minsafe compatible so Uglify does not destroy the ng references
+        ngAnnotate: {
+          dist: {
+            files: [{
+              expand: true,
+              cwd: '.tmp/concat',
+              src: '**/*.js',
+              dest: '.tmp/concat'
+            }]
+          }
         },
         watch: {
             copy: {
@@ -172,6 +190,7 @@ module.exports = function (grunt) {
     'jshint',
     'useminPrepare',
     'concat',
+    'ngAnnotate',
     'cssmin',
     'uglify',
     'copy',

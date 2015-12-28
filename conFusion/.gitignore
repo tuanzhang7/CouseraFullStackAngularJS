@@ -32,3 +32,5 @@ bower_components
 # Created by .ignore support plugin (hsz.mobi)
 .idea
 .tmp
+
+*.DS_Store

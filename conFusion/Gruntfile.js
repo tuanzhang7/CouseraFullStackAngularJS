@@ -133,7 +133,7 @@ module.exports = function (grunt) {
                 tasks: ['build']
             },
             scripts: {
-                files: ['app/scripts/app.js'],
+                files: ['app/scripts/**/*.js'],
                 tasks: ['build']
             },
             styles: {
@@ -201,6 +201,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('serve', ['build', 'connect:dist', 'watch']);
     
-    grunt.registerTask('debug', ['connect:app', 'watch']);
+    grunt.registerTask('debug', ['build','connect:app', 'watch']);
     
 };

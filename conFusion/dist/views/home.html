@@ -33,23 +33,26 @@
             <h3 align=center>This Month's Promotions</h3>
         </div>
         <div class="col-xs-12 col-sm-9">
-            <ul class="media-list">
-                <li class="media">
-
-                    <div class="media-body">
-                        <h2 class="media-heading">{{promotion.name}}
+            <div ng-if="!showPromotion">
+                <h3>{{message}}</h3>
+            </div>
+            <div class="media" ng-if="showPromotion">
+                <ul class="media-list">
+                    <li class="media">
+                        <div class="media-body">
+                            <h2 class="media-heading">{{promotion.name}}
                          <span class="label label-danger">{{promotion.label}}</span>
                          <span class="badge">{{promotion.price | currency}}</span></h2>
 
-                        <p>{{promotion.description}}</p>
+                            <p>{{promotion.description}}</p>
 
-                    </div>
-                    <div class="media-right">
-                        <img class="media-object img-thumbnail" ng-src={{promotion.image}} alt="Uthappizza">
-                    </div>
-                </li>
-            </ul>
-
+                        </div>
+                        <div class="media-right">
+                            <img class="media-object img-thumbnail" ng-src={{promotion.image}} alt="Uthappizza">
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 

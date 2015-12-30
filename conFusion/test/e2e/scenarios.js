@@ -9,7 +9,7 @@ describe('conFusion App E2E Testing', function () {
     });
     describe('index', function () {
         beforeEach(function () {
-            browser.get('index.html#/');
+            browser.get('#/');
         });
 
         it('should have a title', function () {
@@ -19,7 +19,7 @@ describe('conFusion App E2E Testing', function () {
     });
     describe('menu 0 item', function () {
         beforeEach(function () {
-            browser.get('index.html#/menu/0');
+            browser.get('#/menu/0');
         });
 
         it('should have a name', function () {
